@@ -1,18 +1,25 @@
 package com.rajesh.practice.currency_exchange_service.controller;
 
+import com.rajesh.practice.currency_exchange_service.proxy.CurrencyConversionProxy;
 import io.github.resilience4j.bulkhead.annotation.Bulkhead;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import io.github.resilience4j.ratelimiter.annotation.RateLimiter;
 import io.github.resilience4j.retry.annotation.Retry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 @RestController
 public class CircuitBreakerController {
+
+    @Autowired
+    private CurrencyConversionProxy proxy;
 
     private final Logger logger = LoggerFactory.getLogger(CircuitBreakerController.class);
 
@@ -32,6 +39,29 @@ public class CircuitBreakerController {
         logger.info("Fallback response: Service is down. Please try later.");
         return "fallback-response";
     }
+
+
+    @GetMapping("/currency-exchange-test/from/{from}/to/{to}")
+    @CircuitBreaker(name = "sample-api",fallbackMethod = "exceptionHandlerFallback")
+    public ResponseEntity<String> getCurrencyConversion(
+            @PathVariable("from") String from,
+            @PathVariable("to") String to
+    ){
+        logger.info("Test Sample API call received");
+        String conversion = proxy.getCurrencyConversion(from, to);
+        logger.info("conversion is [{}]",conversion);
+
+        return new ResponseEntity<>(conversion, HttpStatus.OK);
+    }
+
+
+//The @Retry annotation expects the fallback method to have the same parameters as the original method plus
+// an Exception parameter at the end.
+    public ResponseEntity<String> exceptionHandlerFallback(String from, String to, Exception exe){
+        logger.info("Fallback response: Service is down. Please try later.");
+        return new ResponseEntity<>("fallback-response", HttpStatus.OK);
+    }
+
 }
 
 

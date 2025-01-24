@@ -81,7 +81,14 @@ public class CurrencyConversionController {
         return conversion;
     }
 
+    @GetMapping("/currency-conversion-test/from/{from}/to/{to}")
+    public String getCurrencyConversion(@PathVariable("from") String from,
+                                        @PathVariable("to") String to){
 
+
+
+        return "From is: "+from+" to is: "+to;
+    }
 
 
 
