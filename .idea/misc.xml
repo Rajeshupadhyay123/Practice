@@ -10,6 +10,8 @@
         <option value="$PROJECT_DIR$/currency-conversioin-service/pom.xml" />
         <option value="$PROJECT_DIR$/naming-server/pom.xml" />
         <option value="$PROJECT_DIR$/api-gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/../jwt/pom.xml" />
+        <option value="$PROJECT_DIR$/identify-service/pom.xml" />
       </list>
     </option>
   </component>

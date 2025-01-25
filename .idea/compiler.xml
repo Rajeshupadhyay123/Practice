@@ -3,15 +3,6 @@
   <component name="CompilerConfiguration">
     <annotationProcessing>
       <profile default="true" name="Default" enabled="true" />
-      <profile name="Annotation profile for limit-service" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="false">
-          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/unknown/lombok-unknown.jar" />
-        </processorPath>
-        <module name="limit-service" />
-      </profile>
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
@@ -22,6 +13,17 @@
         <module name="spring-cloud-config-server" />
         <module name="naming-server" />
       </profile>
+      <profile name="Annotation profile for identify-service" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/unknown/lombok-unknown.jar" />
+        </processorPath>
+        <module name="limit-service" />
+        <module name="jwt" />
+        <module name="identify-service" />
+      </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
@@ -29,6 +31,8 @@
       <module name="api-gateway" options="-parameters" />
       <module name="currency-conversioin-service" options="-parameters" />
       <module name="currency-exchange-service" options="-parameters" />
+      <module name="identify-service" options="-parameters" />
+      <module name="jwt" options="-parameters" />
       <module name="limit-service" options="-parameters" />
       <module name="naming-server" options="-parameters" />
       <module name="spring-cloud-config-server" options="-parameters" />
