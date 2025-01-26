@@ -53,7 +53,7 @@ public class JwtUtil {
                 .setSubject(subject) // Set the subject
                 .setHeaderParam("typ", "JWT") // Set the header parameter (type)
                 .setIssuedAt(new Date(System.currentTimeMillis())) // Set the issued time
-                .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60)) // Set expiration time (1 hour)
+                .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 2)) // Set expiration time (1 hour)
                 .signWith(getSigningKey()) // Sign the JWT using the signing key
                 .compact(); // Build the token
     }

@@ -37,9 +37,8 @@ public class AuthenticationService {
         return jwtUtil.validateToken(token);
     }
 
-
-
-
-
+    public int findUserIdByUserName(String username){
+        return repository.findByUserName(username).getId();
+    }
 
 }
