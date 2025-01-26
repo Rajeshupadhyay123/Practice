@@ -45,6 +45,8 @@ public class ApiGatewayConfiguration {
                                 "/currency-conversion-feign/${segment}"
                         ))
                         .uri("lb://currency-conversion"))
+                .route("identify-service",p -> p.path("/auth/**")
+                        .uri("lb://identify-service"))
                 .build();
     }
 }
