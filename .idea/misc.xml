@@ -13,6 +13,7 @@
         <option value="$PROJECT_DIR$/../jwt/pom.xml" />
         <option value="$PROJECT_DIR$/identify-service/pom.xml" />
         <option value="$PROJECT_DIR$/Spring-kafka/pom.xml" />
+        <option value="$PROJECT_DIR$/Spring-kafka-real-world-project/pom.xml" />
       </list>
     </option>
   </component>

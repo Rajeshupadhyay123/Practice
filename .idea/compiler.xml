@@ -14,22 +14,24 @@
         <module name="spring-cloud-config-server" />
         <module name="naming-server" />
       </profile>
-      <profile name="Annotation profile for jwt" enabled="true">
+      <profile name="Annotation profile for Spring-kafka-real-world-project" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.36/lombok-1.18.36.jar" />
         </processorPath>
+        <module name="Spring-kafka-real-world-project" />
+        <module name="identify-service" />
         <module name="limit-service" />
         <module name="jwt" />
-        <module name="identify-service" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="Spring-kafka" options="-parameters" />
+      <module name="Spring-kafka-real-world-project" options="-parameters" />
       <module name="api-gateway" options="-parameters" />
       <module name="currency-conversioin-service" options="-parameters" />
       <module name="currency-exchange-service" options="-parameters" />

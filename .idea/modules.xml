@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Practice.iml" filepath="$PROJECT_DIR$/.idea/Practice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Spring-kafka-real-world-project/kafka-consumer-database/kafka-consumer-database.iml" filepath="$PROJECT_DIR$/Spring-kafka-real-world-project/kafka-consumer-database/kafka-consumer-database.iml" />
     </modules>
   </component>
 </project>
