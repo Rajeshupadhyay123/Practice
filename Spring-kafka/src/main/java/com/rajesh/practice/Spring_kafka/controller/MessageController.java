@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/v1/kafka")
+@RequestMapping("/kafka")
 public class MessageController {
 
     @Autowired
     private KafkaProducer kafkaProducer;
 
-    //http:localhost:8093/api/v1/kafka/publish?message=hello
+    //http://localhost:8093/api/v1/kafka/publish?message=
     @GetMapping("/publish")
     public ResponseEntity<String> publish(@RequestParam("message") String message){
         kafkaProducer.sendMessage(message);

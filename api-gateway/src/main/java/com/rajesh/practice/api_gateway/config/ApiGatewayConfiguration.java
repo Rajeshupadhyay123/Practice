@@ -45,11 +45,15 @@ public class ApiGatewayConfiguration {
                                 "/currency-conversion-feign/${segment}"
                         ))
                         .uri("lb://currency-conversion"))
+                .route("Spring-kafka",p -> p.path("/kafka/**")
+                        .uri("lb://Spring-kafka"))
                 .route("identify-service",p -> p.path("/auth/**")
                         .uri("lb://identify-service"))
                 .build();
     }
 }
+
+//http://localhost:8765/kafka/publish?message=are you okay
 
 /*
     Here let's Understand the logic of rewritePath() methods.

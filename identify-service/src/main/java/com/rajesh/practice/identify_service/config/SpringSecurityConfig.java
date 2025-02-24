@@ -32,7 +32,7 @@ public class SpringSecurityConfig {
     protected SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/auth/register", "/auth/login","/auth/validate/**","/auth/status","/auth/refreshToken").permitAll()
+                        .requestMatchers("/auth/register", "/auth/login","/auth/validate/**","/auth/status","/auth/refreshToken","/kafka/**").permitAll()
                         .requestMatchers("/admin/**").hasRole("ADMIN") // Only ADMIN role can access these paths
                         .anyRequest().authenticated()
                 )

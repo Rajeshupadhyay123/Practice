@@ -15,6 +15,7 @@ public class RouteValidator {
             "/auth/login",
             "auth/validate/token/**",
             "/auth/refreshToken",
+            "/kafka/publish",
             "/eureka"
     );
 
