@@ -14,17 +14,27 @@
         <module name="spring-cloud-config-server" />
         <module name="naming-server" />
       </profile>
-      <profile name="Annotation profile for Spring-kafka-real-world-project" enabled="true">
+      <profile name="Annotation profile for jwt" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.36/lombok-1.18.36.jar" />
         </processorPath>
-        <module name="Spring-kafka-real-world-project" />
         <module name="identify-service" />
+        <module name="kafka-producer-wikimedia" />
         <module name="limit-service" />
         <module name="jwt" />
+      </profile>
+      <profile name="Annotation profile for Spring-kafka-real-world-project" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.36/lombok-1.18.36.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.36/lombok-1.18.36.jar" />
+        </processorPath>
+        <module name="kafka-consumer-database" />
       </profile>
     </annotationProcessing>
   </component>
@@ -37,6 +47,8 @@
       <module name="currency-exchange-service" options="-parameters" />
       <module name="identify-service" options="-parameters" />
       <module name="jwt" options="-parameters" />
+      <module name="kafka-consumer-database" options="-parameters" />
+      <module name="kafka-producer-wikimedia" options="-parameters" />
       <module name="limit-service" options="-parameters" />
       <module name="naming-server" options="-parameters" />
       <module name="spring-cloud-config-server" options="-parameters" />
