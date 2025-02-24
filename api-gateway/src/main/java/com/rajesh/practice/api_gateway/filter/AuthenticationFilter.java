@@ -40,8 +40,6 @@ public class AuthenticationFilter extends AbstractGatewayFilterFactory<Authentic
                 //header contain token or not
                 logger.info("Token is: {}", mutatedExchange.getRequest().getHeaders().getFirst(HttpHeaders.AUTHORIZATION));
 
-
-
                 String tokenContain=mutatedExchange.getRequest().getHeaders().getFirst(HttpHeaders.AUTHORIZATION);
                 if(tokenContain==null || tokenContain.isEmpty()){
                     exchange.getResponse().setStatusCode(HttpStatus.UNAUTHORIZED);

@@ -10,15 +10,16 @@
         <module name="api-gateway" />
         <module name="currency-exchange-service" />
         <module name="currency-conversioin-service" />
+        <module name="Spring-kafka" />
         <module name="spring-cloud-config-server" />
         <module name="naming-server" />
       </profile>
-      <profile name="Annotation profile for identify-service" enabled="true">
+      <profile name="Annotation profile for jwt" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
-          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/unknown/lombok-unknown.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.36/lombok-1.18.36.jar" />
         </processorPath>
         <module name="limit-service" />
         <module name="jwt" />
@@ -28,6 +29,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Spring-kafka" options="-parameters" />
       <module name="api-gateway" options="-parameters" />
       <module name="currency-conversioin-service" options="-parameters" />
       <module name="currency-exchange-service" options="-parameters" />

@@ -45,6 +45,13 @@ public class AuthController {
         return new ResponseEntity<>(s, HttpStatus.OK);
     }
 
+
+    @GetMapping("/checkValidation")
+    public ResponseEntity<String> statusCheck(){
+        String check="check";
+        return new ResponseEntity<>("Working",HttpStatus.OK);
+    }
+
     @PostMapping("/login")
     public ResponseEntity<JwtResponse> getToken(@RequestBody UserCredential user){
 
@@ -56,11 +63,14 @@ public class AuthController {
 
             UserDetails userDetails = userDetailsService.loadUserByUsername(user.getName());
 
+            //For deleting Refresh token for second time login to regenerate
             int userId = service.findUserIdByUserName(user.getName());
             refereshTokenService.deleteRefreshToken(userId);
 
 
+            //For creating the Refresh Token
             RefereshToken refereshToken = refereshTokenService.createRefereshToken(userDetails.getUsername());
+
             String jwt = service.generateToken(userDetails.getUsername());
 
             JwtResponse response = new JwtResponse(jwt, refereshToken.getToken());
